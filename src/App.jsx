@@ -1,7 +1,14 @@
+import { useSelector } from "react-redux";
 import "./App.css";
 
 function App() {
-  return <></>;
+
+ const {users} = useSelector(state => state) 
+ console.log(users) 
+ 
+  return 
+  <>
+  </>;
 }
 
 export default App;
