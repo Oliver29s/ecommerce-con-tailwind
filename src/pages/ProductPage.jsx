@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductInfo from "../components/Home/productsPage/ProductInfo";
+import SimilarProducts from "../components/Home/productsPage/SimilarProducts";
 
 const ProductPage = () => {
   const [product, setProduct] = useState();
@@ -14,12 +15,15 @@ const ProductPage = () => {
       .get(url)
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
-  console.log(product);
+  
   return (
     <div>
       <ProductInfo  product={product} />
+      <SimilarProducts category={product?.category}
+      productId={product?.id}
+      />
     </div>
   );
 };
